@@ -13,7 +13,7 @@ exports.handler = async function(event, context) {
     const releaseData = await releaseResponse.json();
     
     // Find the asset that ends in .bin (or whatever your firmware extension is)
-    const firmwareAsset = releaseData.assets.find(asset => asset.name.endsWith('keybot_merged.bin'));
+    const firmwareAsset = releaseData.assets.find(asset => asset.name.endsWith(`${FIRMWARE_REPO}_merged.bin`));
     
     if (!firmwareAsset) {
       return { statusCode: 404, body: JSON.stringify({ error: 'No .bin file found in the latest release.' }) };

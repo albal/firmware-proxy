@@ -51,13 +51,9 @@ const FIRMWARE_OWNER = 'albal'; // The GitHub username or organization
 const FIRMWARE_REPO = 'keybot'; // The name of your firmware repository
 ```
 
-These values serve as defaults when environment variables are not set
+These values serve as defaults when environment variables are not set.
 
-The function looks for firmware files with the name pattern `*keybot_merged.bin`. If your firmware file has a different naming pattern, update line 16:
-
-```javascript
-const firmwareAsset = releaseData.assets.find(asset => asset.name.endsWith('keybot_merged.bin'));
-```
+The function automatically looks for firmware files with the name pattern `*<FIRMWARE_REPO>_merged.bin`, where `<FIRMWARE_REPO>` is the value of the `FIRMWARE_REPO` configuration variable. For example, if `FIRMWARE_REPO` is set to `keybot`, it will look for files ending in `keybot_merged.bin`.
 
 ## Usage
 
