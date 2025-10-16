@@ -1,8 +1,8 @@
 // netlify/functions/get-firmware.js
 
 // --- ⚙️ CONFIGURATION ---
-const FIRMWARE_OWNER = 'albal'; // The GitHub username or organization
-const FIRMWARE_REPO = 'keybot'; // The name of your firmware repository
+const FIRMWARE_OWNER = process.env.FIRMWARE_OWNER || 'albal'; // The GitHub username or organization
+const FIRMWARE_REPO = process.env.FIRMWARE_REPO || 'keybot'; // The name of your firmware repository
 
 exports.handler = async function(event, context) {
   try {

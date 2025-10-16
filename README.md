@@ -32,6 +32,18 @@ Netlify will automatically detect the `netlify/functions` directory and deploy t
 
 ### Configuration
 
+You can configure the firmware repository in two ways:
+
+#### Option 1: Environment Variables (Recommended)
+
+Set environment variables in your Netlify deployment settings:
+- `FIRMWARE_OWNER`: Your GitHub username or organization name
+- `FIRMWARE_REPO`: The name of the repository containing firmware releases
+
+This is the recommended approach as it allows you to change configuration without modifying code.
+
+#### Option 2: Edit Configuration File
+
 Edit the configuration variables in `netlify/functions/get-firmware.js`:
 
 ```javascript
@@ -39,9 +51,7 @@ const FIRMWARE_OWNER = 'albal'; // The GitHub username or organization
 const FIRMWARE_REPO = 'keybot'; // The name of your firmware repository
 ```
 
-Update these values to point to your own firmware repository:
-- `FIRMWARE_OWNER`: Your GitHub username or organization name
-- `FIRMWARE_REPO`: The name of the repository containing firmware releases
+These values serve as defaults when environment variables are not set
 
 The function looks for firmware files with the name pattern `*keybot_merged.bin`. If your firmware file has a different naming pattern, update line 16:
 
